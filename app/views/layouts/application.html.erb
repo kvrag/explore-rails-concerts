@@ -5,32 +5,35 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Permanent+Marker" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <header>
       <h1>Concerts, Concerts, Concerts</h1>
+      <nav>
+        <ul id="navbar">
+        <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to "Log Out", '/logout', class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log In", '/login', class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", new_user_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+          <li class="nav-item">
+            <%= link_to "Home", '/', class: 'nav-link' %>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <nav>
-      <ul id="navbar">
-      <% if logged_in? %>
-        <li class="nav-link">
-          <%= link_to "Log Out", '/logout' %>
-        </li>
-      <% else %>
-        <li class="nav-link">
-          <%= link_to "Log In", '/login' %>
-        </li>
-        <li class="nav-link">
-          <%= link_to "Sign Up", new_user_path %>
-        </li>
-      <% end %>
-        <li class="nav-link">
-          <%= link_to "Home", '/' %>
-        </li>
-      </ul>
-    </nav>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

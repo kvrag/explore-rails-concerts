@@ -7,19 +7,19 @@
 
   <%= form_for @user do |f| %>
     <p>
-      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <%= f.text_field :first_name, placeholder: "First Name", class: "input" %>
     </p>
     <p>
-      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <%= f.text_field :last_name, placeholder: "Last Name", class: "input" %>
     </p>
     <p>
-      <%= f.email_field :email, placeholder: "Email Address" %>
+      <%= f.email_field :email, placeholder: "Email Address", class: "input" %>
     </p>
     <p>
-      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password, placeholder: "Password", class: "input" %>
     </p>
     <p>
-      <%= f.submit "Register" %>
+      <%= f.submit "Register", class: "button" %>
     </p>
   <% end %>
 </div>

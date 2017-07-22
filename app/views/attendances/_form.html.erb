@@ -1,5 +1,5 @@
-<%= form_for :attendance do |f| %>
-  <%= f.hidden_field :attendee, value: current_user.id %>
-  <%= f.hidden_field :concert, value: concert.id %>
-  <%= button_tag "Attend Concert" %>
+<%= form_for :attendance, url: attendances_path, method: :post do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :concert_id, value: concert.id %>
+  <%= button_tag "Attend Concert", class: "button" %>
 <% end %>

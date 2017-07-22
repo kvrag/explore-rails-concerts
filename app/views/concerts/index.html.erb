@@ -1,9 +1,9 @@
-<h2>Upcoming Concerts</h2>
+<h2>Upcoming Shows</h2>
 
 <ul id="concert-list">
   <% for concert in @concerts %>
     <li class="concert-listing">
-      <%= link_to concert.band, concert_path(concert) %> &ndash; 
+      <%= link_to concert.band, concert_path(concert), class: "link" %> &ndash; 
       <%= concert.venue %> on <%= concert.formatted_date %> at <%= concert.start_time %>
     </li>
   <% end %>
