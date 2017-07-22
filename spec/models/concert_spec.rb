@@ -1,20 +1,24 @@
 require 'rails_helper'
 
 describe Concert do 
-  let (:concert) { Concert.create(band: "Kansas", venue: "Mines of Moria", date: "kvrag@kvrag.com", start_time: "7:00PM") }
+  let (:concert) { Concert.create(band: "Kansas", venue: "Mines of Moria", date: Date.today, start_time: "7:00 PM") }
 
-  it "has a first name" do 
-    expect(user.first_name).to eq "Kristina"
+  it "has a band name" do 
+    expect(concert.band).to eq "Kansas"
   end
 
-  it "has a last name" do 
-    expect(user.last_name).to eq "Vragovic"
+  it "has a venue" do 
+    expect(concert.venue).to eq "Mines of Moria"
   end
 
-  describe ".full_name" do 
-    it "returns the first and last name of the user as a single string" do
+  it "has a start time" do 
+    expect(concert.start_time).to eq "7:00 PM"
+  end
 
-    expect(user.full_name).to eq "Kristina Vragovic"
+  describe ".formatted_date" do 
+    it "returns the date of the concert in mm/dd/yyyy format" do
+
+    expect(concert.formatted_date).to eq Date.today.strftime("%m/%d/%Y")
     end
   end
 
