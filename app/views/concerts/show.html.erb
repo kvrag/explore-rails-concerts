@@ -12,20 +12,24 @@
   </li>
 </ul>
 
-<h3>Attendees</h3>
+<% if @concert.attendees.length > 0 %>
+  <h3>Attendees</h3>
 
-<ul class="concert-details">
-  <% for attendee in @concert.attendees %>
-    <% if logged_in? && attendee == current_user %>
-      <li>
-        <strong><%= current_user.full_name %></strong>
-      </li>
-    <% else %>
-      <li>
-        <%= attendee.full_name %>
-      </li>
+  <ul class="concert-details" id="attendee-list">
+    <% for attendee in @concert.attendees %>
+      <% if logged_in? && attendee == current_user %>
+        <li>
+          <strong><%= current_user.full_name %></strong>
+        </li>
+      <% else %>
+        <li>
+          <%= attendee.full_name %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+<% end %>
 
-<%= render partial: 'attendances/form', locals: {concert: @concert } %>
+<% if logged_in? %>
+  <%= render partial: 'attendances/form', locals: {concert: @concert } %>
+<% end %>

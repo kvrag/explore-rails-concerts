@@ -4,10 +4,11 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new(attendance_params)
     @concert = Concert.find(attendance_params[:concert_id])
     if @attendance.save 
-      redirect_to concert_url(@concert)
+      format.html { redirect_to concert_url(@concert) }
+      format.js
     else
       @errors = @attendance.errors.full_messages
-      render concert_path(@concert)
+      format.html { render concert_path(@concert) }
     end
   end
 
