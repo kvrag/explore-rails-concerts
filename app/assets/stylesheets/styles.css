@@ -63,8 +63,8 @@ nav {
   text-transform: uppercase;
 }
 
-.nav-item:hover {
-  background-color: #fff;
+.nav-item > a:hover {
+  color: #fff;
 }
 
 .link {
