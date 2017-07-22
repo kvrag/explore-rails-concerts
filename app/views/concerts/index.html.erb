@@ -3,7 +3,7 @@
 <ul id="concert-list">
   <% for concert in @concerts %>
     <li class="concert-listing">
-      <%= link_to concert.band, concert_path(concert) %> - 
+      <%= link_to concert.band, concert_path(concert) %> &ndash; 
       <%= concert.venue %> on <%= concert.formatted_date %> at <%= concert.start_time %>
     </li>
   <% end %>

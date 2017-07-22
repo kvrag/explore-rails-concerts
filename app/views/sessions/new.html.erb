@@ -1,0 +1,19 @@
+<h2>Log In</h2>
+
+<div class="form">
+<% if @errors %>
+  <%= render partial: 'layouts/errors' %>
+<% end %>
+
+  <%= form_for :session, url: 'login' do |f| %>
+    <p>
+      <%= f.email_field :email, placeholder: "Email Address" %>
+    </p>
+    <p>
+      <%= f.password_field :password, placeholder: "Password" %>
+    </p>
+    <p>
+      <%= f.submit "Log In" %>
+    </p>
+  <% end %>
+</div>

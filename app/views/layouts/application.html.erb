@@ -14,12 +14,18 @@
     </header>
     <nav>
       <ul id="navbar">
+      <% if logged_in? %>
         <li class="nav-link">
-          Log In
+          <%= link_to "Log Out", '/logout' %>
+        </li>
+      <% else %>
+        <li class="nav-link">
+          <%= link_to "Log In", '/login' %>
         </li>
         <li class="nav-link">
           <%= link_to "Sign Up", new_user_path %>
         </li>
+      <% end %>
         <li class="nav-link">
           <%= link_to "Home", '/' %>
         </li>

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.authenticate(user_params[:password])
+      session[:user_id] = @user.id
       redirect_to '/'
     else
       @errors = @user.errors.full_messages
