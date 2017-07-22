@@ -4,7 +4,7 @@ class CreateConcerts < ActiveRecord::Migration[5.0]
       t.string :band, null:false
       t.string :venue, null:false
       t.datetime :date, null:false
-      t.string :time, null:false
+      t.string :start_time, null:false
 
       t.timestamps
     end
