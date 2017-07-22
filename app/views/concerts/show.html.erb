@@ -1,0 +1,31 @@
+<h2><%= @concert.band %></h2>
+
+<ul class="concert-details">
+  <li>
+    Location: <%= @concert.venue %>
+  </li>
+  <li>
+    Date: <%= @concert.formatted_date %>
+  </li>
+  <li>
+    Time: <%= @concert.start_time %>
+  </li>
+</ul>
+
+<h3>Attendees</h3>
+
+<ul class="concert-details">
+  <% for attendee in @concert.attendees %>
+    <% if logged_in? && attendee == current_user %>
+      <li>
+        <strong><%= current_user.full_name %></strong>
+      </li>
+    <% else %>
+      <li>
+        <%= attendee.full_name %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= render partial: 'attendances/form', locals: {concert: @concert } %>

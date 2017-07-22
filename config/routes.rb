@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   resources :concerts, only: [:index, :show]
   resources :users, only: [:new, :create]
+  resources :attendances, only: [:create]
 end
