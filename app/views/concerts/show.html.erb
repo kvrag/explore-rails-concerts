@@ -27,6 +27,6 @@
   <%= render partial: 'layouts/errors', locals: {errors: @errors} %>
 <% end %>
 
-<% if logged_in? %>
+<% if logged_in? && !@concert.attendees.include?(current_user) %>
   <%= render partial: 'attendances/form', locals: {concert: @concert } %>
 <% end %>

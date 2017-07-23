@@ -12,7 +12,7 @@ class AttendancesController < ApplicationController
             render json: render_to_string(partial: 'attendances/attendee', locals: {attendee: @attendance.attendee})
         }
       else
-        @errors = ["You are already attending, sillypants!"]
+        @errors = ["We heard you the first time!"]
         format.html{ 
           render '/concerts/show' }
         format.json{ 
