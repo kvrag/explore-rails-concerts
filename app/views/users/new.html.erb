@@ -1,8 +1,8 @@
+<div class="form">
 <h2>Sign Up</h2>
 
-<div class="form">
 <% if @errors %>
-  <%= render partial: 'layouts/errors' %>
+  <%= render partial: 'layouts/errors', locals: {errors: @errors} %>
 <% end %>
 
   <%= form_for @user do |f| %>

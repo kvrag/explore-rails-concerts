@@ -1,0 +1,9 @@
+<% if logged_in? && attendee == current_user %>
+  <li>
+    <strong><%= current_user.full_name %></strong>
+  </li>
+<% else %>
+  <li>
+    <%= attendee.full_name %>
+  </li>
+<% end %>

@@ -1,14 +1,25 @@
 class AttendancesController < ApplicationController
 
   def create
+    # respond_to :json
     @attendance = Attendance.new(attendance_params)
     @concert = Concert.find(attendance_params[:concert_id])
-    if @attendance.save 
-      format.html { redirect_to concert_url(@concert) }
-      format.js
-    else
-      @errors = @attendance.errors.full_messages
-      format.html { render concert_path(@concert) }
+    respond_to do |format|
+      if @attendance.save
+        format.html{ redirect_to @concert }
+        format.js{}
+        format.json{
+            render json: render_to_string(partial: 'attendances/attendee', locals: {attendee: @attendance.attendee})
+        }
+      else
+        @errors = ["You are already attending, sillypants!"]
+        format.html{ 
+          render '/concerts/show' }
+        format.json{ 
+          render json: render_to_string(partial: 'layouts/errors', locals: {errors: @errors}) 
+        }
+        # WHAT THE FUCK WHYYY
+      end
     end
   end
 

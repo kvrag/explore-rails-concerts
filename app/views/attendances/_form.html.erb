@@ -1,5 +1,8 @@
-<%= form_for :attendance, url: attendances_path, method: :post, remote: true do |f| %>
+<div id="attend">
+<%= form_for :attendance, url: attendances_path, method: :post, remote: true, authenticity_token: true do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :concert_id, value: concert.id %>
-  <%= button_tag "Attend", class: "button attend" %>
+  <%= f.hidden_field :authenticity_token, value: form_authenticity_token %>
+  <%= f.button "Attend", class: "button" %>
 <% end %>
+</div>

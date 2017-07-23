@@ -17,17 +17,14 @@
 
   <ul class="concert-details" id="attendee-list">
     <% for attendee in @concert.attendees %>
-      <% if logged_in? && attendee == current_user %>
-        <li>
-          <strong><%= current_user.full_name %></strong>
-        </li>
-      <% else %>
-        <li>
-          <%= attendee.full_name %>
-        </li>
-      <% end %>
+      <%= render partial: 'attendees/attendee', locals: {attendee: attendee} %> 
+      <!-- why isn't collection partial working here? -->
     <% end %>
   </ul>
+<% end %>
+
+<% if @errors %>
+  <%= render partial: 'layouts/errors', locals: {errors: @errors} %>
 <% end %>
 
 <% if logged_in? %>
