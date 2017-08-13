@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :attendances, as: :attendee
+  has_many :attendances
   has_many :concerts, through: :attendances, source: :concert_id
 
   validates :first_name, :last_name, presence: true

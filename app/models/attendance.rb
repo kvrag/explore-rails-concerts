@@ -1,6 +1,6 @@
 class Attendance < ApplicationRecord
-  belongs_to :attendee, class_name: 'User', foreign_key: :user_id
+  belongs_to :user
   belongs_to :concert
 
-  validates_uniqueness_of :user_id, scope: :concert_id   
+  validates_uniqueness_of :attendee_id, scope: :concert_id   
 end
