@@ -11,12 +11,12 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'jbuilder'
 gem 'bcrypt'
+gem 'faker', '>= 1.7.2'
 
 group :development, :test do
   # gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'rails-controller-testing'
-  gem 'faker', '>= 1.7.2'
 end
 
 group :development do
