@@ -9,7 +9,7 @@ class AttendancesController < ApplicationController
         format.html{ redirect_to @concert }
         format.js{}
         format.json{
-            render json: render_to_string(partial: 'attendances/attendee', locals: {attendee: @attendance.attendee})
+            render json: render_to_string(partial: 'attendances/attendee', locals: {attendee: @attendance.user})
         }
       else
         @errors = ["We heard you the first time!"]
