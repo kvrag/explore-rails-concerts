@@ -74,7 +74,7 @@ nav {
 
 /* -------- MEDIA QUERIES --------- */
 
-  @media screen and (min-width:895px) {
+  @media only screen and (min-width:895px) {
     nav {
       text-align: right;
     }
@@ -88,7 +88,7 @@ nav {
     }
   }
 
-  @media screen and (max-width:894px) {
+  @media only screen and (max-width:894px) {
 
     nav {
       text-align: left;
@@ -110,7 +110,7 @@ nav {
     }
   }
 
-  @media screen and (max-width:559px) {
+  @media only screen and (max-width:559px) {
     #navbar {
       margin-top: 45px;
     }
